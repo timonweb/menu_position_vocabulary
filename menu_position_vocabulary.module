@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * Provides the vocabulary rule plugin for the Menu Position module.
+ */
 
 /**
  * Implements hook_menu_position_rule_plugins().
