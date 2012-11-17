@@ -5,18 +5,19 @@
  */
 
 /**
- * Checks if the current taxonomy term belongs to selected vocabulary
+ * Checks if the current taxonomy term belongs to selected vocabulary.
  *
  * @param $variables
  *   An array containing each of the variables saved in the database necessary
  *   to evaluate this condition of the rule.
- * @return
+ * @return bool
  *   TRUE if condition applies successfully. Otherwise FALSE.
+ *
  */
 function menu_position_vocabulary_menu_position_condition_vocabulary($variables) {
   if (isset($variables['vids']) && !empty($variables['context']['path'])) {
     $arg = explode('/', $variables['context']['path']);
-    // This condition works only for taxonomy pages
+    // This condition works only for taxonomy pages!
     if ($arg[0] == 'taxonomy'
         && $arg[1] == 'term'
         && is_numeric($arg[2])
@@ -43,7 +44,9 @@ function menu_position_vocabulary_menu_position_condition_vocabulary($variables)
 function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$form_state) {
 
   // If this is an existing rule, load the variables stored in the rule for this plugin.
-  $variables = !empty($form_state['#menu-position-rule']['conditions']['vocabulary']) ? $form_state['#menu-position-rule']['conditions']['vocabulary'] : array();
+  $variables = !empty($form_state['#menu-position-rule']['conditions']['vocabulary']) 
+  ? $form_state['#menu-position-rule']['conditions']['vocabulary'] 
+  : array();
 
   $form['conditions']['vocabulary'] = array(
     '#type' => 'fieldset',

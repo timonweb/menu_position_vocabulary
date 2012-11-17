@@ -14,6 +14,6 @@ function menu_position_vocabulary_menu_position_rule_plugins() {
       'form_callback' => 'menu_position_vocabulary_menu_position_rule_vocabulary_form',
       'condition_callback' => 'menu_position_vocabulary_menu_position_condition_vocabulary',
       'file' => 'menu_position_vocabulary.inc',
-    )
+    ),
   );
 }
