@@ -9,8 +9,8 @@ INTRODUCTION
 ------------
 Maintainer: Tim Kamanin (http://drupal.org/user/49393)
 
-Provides "taxonomy term belongs to vocabulary" conditions for menu position rules.
-
+Provides "taxonomy term belongs to vocabulary" conditions for menu position 
+rules.
 
 INSTALLATION
 ------------
