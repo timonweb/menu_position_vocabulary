@@ -7,7 +7,7 @@
 /**
  * Checks if the current taxonomy term belongs to selected vocabulary.
  *
- * @param $variables
+ * @param $variables array
  *   An array containing each of the variables saved in the database necessary
  *   to evaluate this condition of the rule.
  * @return bool
@@ -35,18 +35,16 @@ function menu_position_vocabulary_menu_position_condition_vocabulary($variables)
  * It is the resposibility of this hook to add any necessary form validation and
  * submission handlers.
  *
- * @param $form
+ * @param $form array
  *   A reference to the "add/edit rule" form array. New form elements should be
  *   added directly to this array.
- * @param $form_state
+ * @param $form_state array
  *   A reference to the current form state.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$form_state) {
 
-  // If this is an existing rule, load the variables stored in the rule for this plugin.
-  $variables = !empty($form_state['#menu-position-rule']['conditions']['vocabulary']) 
-  ? $form_state['#menu-position-rule']['conditions']['vocabulary'] 
-  : array();
+  // If this is an existing rule, load the variables stored in the rule.
+  $variables = !empty($form_state['#menu-position-rule']['conditions']['vocabulary']) ? $form_state['#menu-position-rule']['conditions']['vocabulary'] : array();
 
   $form['conditions']['vocabulary'] = array(
     '#type' => 'fieldset',
@@ -78,9 +76,9 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
 /**
  * Prepares the plugin's variables to be stored in the rule.
  *
- * @param $form
+ * @param $form array
  *   A reference to the "add/edit rule" form array.
- * @param $form_state
+ * @param $form_state array
  *   A reference to the current form state, including submitted values.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form_submit(&$form, &$form_state) {
