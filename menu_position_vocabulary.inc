@@ -18,11 +18,9 @@ function menu_position_vocabulary_menu_position_condition_vocabulary($variables)
   if (isset($variables['vids']) && !empty($variables['context']['path'])) {
     $arg = explode('/', $variables['context']['path']);
     // This condition works only for taxonomy pages!
-    if ($arg[0] == 'taxonomy'
-        && $arg[1] == 'term'
-        && is_numeric($arg[2])
-        && in_array(taxonomy_term_load($arg[2])->vid, $variables['vids'])
-    ) return TRUE;
+    if ($arg[0] == 'taxonomy' && $arg[1] == 'term' && is_numeric($arg[2]) && in_array(taxonomy_term_load($arg[2])->vid, $variables['vids'])) {
+      return TRUE;
+    }
   }
 }
 
