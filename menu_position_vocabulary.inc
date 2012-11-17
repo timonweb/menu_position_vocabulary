@@ -41,7 +41,7 @@ function menu_position_vocabulary_menu_position_condition_vocabulary($variables)
  *   A reference to the current form state.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$form_state) {
-  
+
   // If this is an existing rule, load the variables stored in the rule for this plugin.
   $variables = !empty($form_state['#menu-position-rule']['conditions']['vocabulary']) ? $form_state['#menu-position-rule']['conditions']['vocabulary'] : array();
 
@@ -58,7 +58,6 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
   $vocabularies = taxonomy_vocabulary_get_names();
   $vocabulary_options = array();
   foreach ($vocabularies as $vocabulary) {
-    // $vocabulary['machine_name']
     $vocabulary_options[$vocabulary->vid] = $vocabulary->name;
   }
   $form['conditions']['vocabulary']['vids'] = array(
@@ -68,7 +67,7 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
     '#default_value' => !empty($variables['vids']) ? $variables['vids'] : '0',
     '#options' => array('0' => t('- None -')) + $vocabulary_options,
   );
-  
+
   // Add a submit handler.
   $form['#submit'][] = 'menu_position_vocabulary_menu_position_rule_vocabulary_form_submit';
 }
