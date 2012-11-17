@@ -7,12 +7,12 @@
 /**
  * Checks if the current taxonomy term belongs to selected vocabulary.
  *
- * @param $variables array
+ * @param array $variables
  *   An array containing each of the variables saved in the database necessary
  *   to evaluate this condition of the rule.
+ *
  * @return bool
  *   TRUE if condition applies successfully. Otherwise FALSE.
- *
  */
 function menu_position_vocabulary_menu_position_condition_vocabulary($variables) {
   if (isset($variables['vids']) && !empty($variables['context']['path'])) {
@@ -35,10 +35,10 @@ function menu_position_vocabulary_menu_position_condition_vocabulary($variables)
  * It is the resposibility of this hook to add any necessary form validation and
  * submission handlers.
  *
- * @param $form array
+ * @param array $form
  *   A reference to the "add/edit rule" form array. New form elements should be
  *   added directly to this array.
- * @param $form_state array
+ * @param array $form_state
  *   A reference to the current form state.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$form_state) {
@@ -76,9 +76,9 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
 /**
  * Prepares the plugin's variables to be stored in the rule.
  *
- * @param $form array
+ * @param array $form
  *   A reference to the "add/edit rule" form array.
- * @param $form_state array
+ * @param array $form_state
  *   A reference to the current form state, including submitted values.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form_submit(&$form, &$form_state) {
