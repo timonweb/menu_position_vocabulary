@@ -2,3 +2,4 @@ name = Menu position vocabulary
 description = Provides taxonomy term belongs to vocabulary conditions for menu position rules.
 core = 7.x
 dependencies[] = menu_position
+dependencies[] = taxonomy
