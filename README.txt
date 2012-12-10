@@ -22,5 +22,5 @@ USAGE
 -----
 Go to: Structure > Menu position rules and add a Rule or edit existing:
 you should see "Vocabulary" tab available. In this tab you can select one or
-multiple vocabularies, this will activate menu position rule for taxonomy term pages
-which belong to selected vocabularies.
+multiple vocabularies, this will activate menu position rule for taxonomy term
+pages which belong to selected vocabularies.
