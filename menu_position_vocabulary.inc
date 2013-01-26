@@ -16,12 +16,15 @@
  */
 function menu_position_vocabulary_menu_position_condition_vocabulary($variables) {
   if (isset($variables['vids']) && !empty($variables['context']['path'])) {
-    $arg = explode('/', $variables['context']['path']);
     // This condition works only for taxonomy pages!
-    if ($arg[0] == 'taxonomy' && $arg[1] == 'term' && is_numeric($arg[2]) && in_array(taxonomy_term_load($arg[2])->vid, $variables['vids'])) {
+    if (arg(0, $variables['context']['path']) == 'taxonomy'
+      && arg(1, $variables['context']['path']) == 'term'
+      && is_numeric(arg(2, $variables['context']['path']))
+      && in_array(taxonomy_term_load(arg(2, $variables['context']['path']))->vid, $variables['vids'])) {
       return TRUE;
     }
   }
+  return FALSE;
 }
 
 /**
@@ -85,6 +88,9 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
  *   A reference to the current form state, including submitted values.
  */
 function menu_position_vocabulary_menu_position_rule_vocabulary_form_submit(&$form, &$form_state) {
+  // Remove - None - array value.
+  unset($form_state['values']['vids'][0]);
+  // Save vocabulary_ids.
   if (!empty($form_state['values']['vids'])) {
     $form_state['values']['conditions']['vocabulary']['vids'] = $form_state['values']['vids'];
   }
