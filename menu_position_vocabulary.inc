@@ -54,6 +54,11 @@ function menu_position_vocabulary_menu_position_rule_vocabulary_form(&$form, &$f
     ),
   );
 
+  $form['conditions']['vocabulary']['description'] = array(
+    '#type' => 'item',
+    '#description' => t('Apply this rule only on taxonomy pages that belong to the given vocabulary.'),
+  );
+
   $vocabularies = taxonomy_vocabulary_get_names();
   $vocabulary_options = array();
   foreach ($vocabularies as $vocabulary) {
